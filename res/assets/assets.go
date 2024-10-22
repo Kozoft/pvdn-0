@@ -10,7 +10,6 @@ import (
 var gameAssets embed.FS
 
 func OpenAsset(path string) io.ReadCloser {
-
 	f, err := gameAssets.Open("data/" + path)
 	if err != nil {
 		panic(err)

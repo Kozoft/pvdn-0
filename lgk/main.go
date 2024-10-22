@@ -16,10 +16,8 @@ type Player struct {
 type myGame struct {
 	windowWidth  int
 	windowHeight int
-
-	loader *resource.Loader
-
-	player *Player
+	loader       *resource.Loader
+	player       *Player
 }
 
 func main() {
@@ -28,14 +26,10 @@ func main() {
 		windowHeight: 240,
 		loader:       createLoader(),
 	}
-
 	ebiten.SetWindowSize(g.windowWidth, g.windowHeight)
 	ebiten.SetWindowTitle("Ebitengine Quest")
-
 	assets.RegisterResources(g.loader)
-
 	g.init()
-
 	if err := ebiten.RunGame(g); err != nil {
 		panic(err)
 	}
