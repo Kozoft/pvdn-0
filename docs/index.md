@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Детективное агенство “Underground”
-tagline: и вниз
-description: dau rpg site
+title: index title
+tagline: index tag
+description: index description
 ---
-
+## Детективное агенство “Underground”
 ### О локации.
 Игра проходит в системе подземных коридоров крепости Петроварадин в Нови Саде.
 
