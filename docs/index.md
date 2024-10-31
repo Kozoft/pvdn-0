@@ -1,8 +1,6 @@
 ---
 layout: default
-title: index title
-tagline: index tag
-description: index description
+title: Детективное агенство “Underground”
 ---
 ## Детективное агенство “Underground”
 ### О локации.
