@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: dau
 tagline: dau rpg
 description: dau rpg site
