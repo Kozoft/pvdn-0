@@ -1,11 +1,11 @@
 package main
 
 import (
-	"ebiten/res/assets"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/audio"
 	resource "github.com/quasilyte/ebitengine-resource"
 	"github.com/quasilyte/gmath"
+	"pvdn-0/res/assets"
 )
 
 type Player struct {
