@@ -27,7 +27,7 @@ func main() {
 		loader:       createLoader(),
 	}
 	ebiten.SetWindowSize(g.windowWidth, g.windowHeight)
-	ebiten.SetWindowTitle("Ebitengine Quest")
+	ebiten.SetWindowTitle("Ebitengine Apple Sample")
 	assets.RegisterResources(g.loader)
 	g.init()
 	if err := ebiten.RunGame(g); err != nil {
@@ -35,11 +35,13 @@ func main() {
 	}
 }
 
+// Update game logic here
 func (g *myGame) Update() error {
 	g.player.pos.X += 16 * (1.0 / 60.0)
 	return nil
 }
 
+// Draw drawing here
 func (g *myGame) Draw(screen *ebiten.Image) {
 	var options ebiten.DrawImageOptions
 	options.GeoM.Translate(g.player.pos.X, g.player.pos.Y)
@@ -51,8 +53,8 @@ func (g *myGame) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHei
 }
 
 func (g *myGame) init() {
-	gopher := g.loader.LoadImage(assets.ImageGopher).Data
-	g.player = &Player{img: gopher}
+	apple := g.loader.LoadImage(assets.ImageApple).Data
+	g.player = &Player{img: apple}
 }
 
 func createLoader() *resource.Loader {
