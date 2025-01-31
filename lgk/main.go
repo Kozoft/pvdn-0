@@ -8,6 +8,7 @@ import (
   "github.com/quasilyte/gmath"
   "pvdn-0/res/assets"
   "pvdn-0/res/controls"
+  "pvdn-0/res/game"
 )
 
 type Player struct {
@@ -15,69 +16,69 @@ type Player struct {
   img *ebiten.Image
 }
 
-type myGame struct {
-  windowWidth  int
-  windowHeight int
-  inputSystem  input.System
-  input        *input.Handler
-  loader       *resource.Loader
-  player       *Player
+type aGame struct {
+  inputSystem input.System
+  context     *game.Context
+  player      *Player
 }
 
 func main() {
-  g := &myGame{
-    windowWidth:  320,
-    windowHeight: 240,
-    loader:       createLoader(),
+  context := &game.Context{
+    Loader:       createLoader(),
+    WindowWidth:  320,
+    WindowHeight: 240,
   }
-  g.inputSystem.Init(input.SystemConfig{
+  theGame := &aGame{
+    context: context,
+  }
+  theGame.inputSystem.Init(input.SystemConfig{
     DevicesEnabled: input.AnyDevice,
   })
-  g.input = g.inputSystem.NewHandler(0, controls.DefaultKeymap)
-  ebiten.SetWindowSize(g.windowWidth, g.windowHeight)
+  context.Input = theGame.inputSystem.NewHandler(0, controls.DefaultKeymap)
+  ebiten.SetWindowSize(theGame.context.WindowWidth, theGame.context.WindowHeight)
   ebiten.SetWindowTitle("Ebitengine Apple Sample")
-  assets.RegisterResources(g.loader)
-  g.init()
-  if err := ebiten.RunGame(g); err != nil {
+  assets.RegisterResources(context.Loader)
+  theGame.init()
+  if err := ebiten.RunGame(theGame); err != nil {
     panic(err)
   }
 }
 
 // Update game logic here
-func (g *myGame) Update() error {
-  g.inputSystem.Update()
+func (localGame *aGame) Update() error {
+  localGame.inputSystem.Update()
   speed := 64.0 * (1.0 / 60)
   var v gmath.Vec
-  if g.input.ActionIsPressed(controls.ActionMoveRight) {
+  if localGame.context.Input.ActionIsPressed(controls.ActionMoveRight) {
     v.X += speed
   }
-  if g.input.ActionIsPressed(controls.ActionMoveDown) {
+  if localGame.context.Input.ActionIsPressed(controls.ActionMoveDown) {
     v.Y += speed
   }
-  if g.input.ActionIsPressed(controls.ActionMoveLeft) {
+  if localGame.context.Input.ActionIsPressed(controls.ActionMoveLeft) {
     v.X -= speed
   }
-  if g.input.ActionIsPressed(controls.ActionMoveUp) {
+  if localGame.context.Input.ActionIsPressed(controls.ActionMoveUp) {
     v.Y -= speed
   }
-  g.player.pos = g.player.pos.Add(v)
+  localGame.player.pos = localGame.player.pos.Add(v)
   return nil
 }
 
 // Draw drawing here
-func (g *myGame) Draw(screen *ebiten.Image) {
+func (localGame *aGame) Draw(screen *ebiten.Image) {
   var options ebiten.DrawImageOptions
-  options.GeoM.Translate(g.player.pos.X, g.player.pos.Y)
-  screen.DrawImage(g.player.img, &options)
+  options.GeoM.Translate(localGame.player.pos.X, localGame.player.pos.Y)
+  screen.DrawImage(localGame.player.img, &options)
 }
 
-func (g *myGame) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
-  return g.windowWidth, g.windowHeight
+func (localGame *aGame) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
+  return localGame.context.WindowWidth, localGame.context.WindowHeight
 }
 
-func (g *myGame) init() {
-  apple := g.loader.LoadImage(assets.ImageApple).Data
-  g.player = &Player{img: apple}
+func (localGame *aGame) init() {
+  apple := localGame.context.Loader.LoadImage(assets.ImageApple).Data
+  localGame.player = &Player{img: apple}
 }
 
 func createLoader() *resource.Loader {
