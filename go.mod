@@ -4,6 +4,7 @@ go 1.23.5
 
 require (
 	github.com/hajimehoshi/ebiten/v2 v2.8.6
+	github.com/quasilyte/ebitengine-input v0.9.1
 	github.com/quasilyte/ebitengine-resource v0.5.0
 	github.com/quasilyte/gmath v0.0.0-20241226070017-2bb2d7046bb1
 )
@@ -16,6 +17,7 @@ require (
 	github.com/jezek/xgb v1.1.1 // indirect
 	github.com/jfreymuth/oggvorbis v1.0.5 // indirect
 	github.com/jfreymuth/vorbis v1.0.2 // indirect
+	golang.org/x/exp v0.0.0-20250128182459-e0ece0dbea4c // indirect
 	golang.org/x/image v0.23.0 // indirect
 	golang.org/x/sync v0.10.0 // indirect
 	golang.org/x/sys v0.29.0 // indirect
