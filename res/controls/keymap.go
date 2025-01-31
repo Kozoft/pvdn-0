@@ -23,7 +23,6 @@ var DefaultKeymap = input.Keymap{
 		input.KeyW,
 		input.KeyGamepadUp,
 	},
-
 	ActionConfirm: {
 		input.KeyEnter,
 		input.KeyGamepadStart,
