@@ -10,7 +10,7 @@ import (
   "pvdn-0/res/assets"
   "pvdn-0/res/controls"
   "pvdn-0/res/game"
-  splash "pvdn-0/res/scenes/_01-splash"
+  splash "pvdn-0/res/scenes/scenes-01-splash"
 )
 
 type aGame struct {
@@ -34,7 +34,7 @@ func main() {
   ebiten.SetWindowSize(theGame.context.WindowWidth, theGame.context.WindowHeight)
   ebiten.SetWindowTitle("Ebitengine Apple Sample")
   assets.RegisterResources(context.Loader)
-  game.ChangeScene(context, splash.NewSplashController(context))
+  game.ChangeScene(context, splash.NewController01(context))
   if err := ebiten.RunGame(theGame); err != nil {
     panic(err)
   }

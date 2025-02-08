@@ -12,8 +12,8 @@ const (
 
 func registerFontResources(loader *resource.Loader) {
   fontResources := map[resource.FontID]resource.FontInfo{
-    FontNormal: {Path: "fonts/Quicksand-Regular.otf", Size: 10},
-    FontBig:    {Path: "fonts/Quicksand-Regular.otf", Size: 14},
+    FontNormal: {Path: "fonts/Quicksand-Regular.otf", Size: 14},
+    FontBig:    {Path: "fonts/Quicksand-Regular.otf", Size: 18},
   }
 
   for id, res := range fontResources {

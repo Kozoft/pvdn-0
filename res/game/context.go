@@ -9,15 +9,14 @@ import (
 )
 
 type Context struct {
-  Input  *input.Handler
-  Loader *resource.Loader
-  Rand   gmath.Rand
+  Input         *input.Handler
+  Loader        *resource.Loader
+  Rand          gmath.Rand
+  graphicsCache *graphics.Cache
+  scene         gscene.GameRunner
 
   WindowWidth  int
   WindowHeight int
-
-  graphicsCache *graphics.Cache
-  scene         gscene.GameRunner
 }
 
 func ChangeScene[ControllerAccessor any](context *Context, controller gscene.Controller[ControllerAccessor]) {

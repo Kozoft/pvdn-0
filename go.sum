@@ -6,13 +6,6 @@ github.com/ebitengine/oto/v3 v3.3.2 h1:VTWBsKX9eb+dXzaF4jEwQbs4yWIdXukJ0K40KgkpY
 github.com/ebitengine/oto/v3 v3.3.2/go.mod h1:MZeb/lwoC4DCOdiTIxYezrURTw7EvK/yF863+tmBI+U=
 github.com/ebitengine/purego v0.8.2 h1:jPPGWs2sZ1UgOSgD2bClL0MJIqu58nOmIcBuXr62z1I=
 github.com/ebitengine/purego v0.8.2/go.mod h1:iIjxzd6CiRiOG0UyXP+V1+jWqUXVjPKLAI0mRfJZTmQ=
-github.com/go-text/typesetting v0.2.0 h1:fbzsgbmk04KiWtE+c3ZD4W2nmCRzBqrqQOvYlwAOdho=
-github.com/go-text/typesetting v0.2.0/go.mod h1:2+owI/sxa73XA581LAzVuEBZ3WEEV2pXeDswCH/3i1I=
-github.com/go-text/typesetting v0.2.1 h1:x0jMOGyO3d1qFAPI0j4GSsh7M0Q3Ypjzr4+CEVg82V8=
-github.com/go-text/typesetting v0.2.1/go.mod h1:mTOxEwasOFpAMBjEQDhdWRckoLLeI/+qrQeBCTGEt6M=
-github.com/go-text/typesetting-utils v0.0.0-20240317173224-1986cbe96c66 h1:GUrm65PQPlhFSKjLPGOZNPNxLCybjzjYBzjfoBGaDUY=
-github.com/go-text/typesetting-utils v0.0.0-20240317173224-1986cbe96c66/go.mod h1:DDxDdQEnB70R8owOx3LVpEFvpMK9eeH1o2r0yZhFI9o=
-github.com/go-text/typesetting-utils v0.0.0-20241103174707-87a29e9e6066 h1:qCuYC+94v2xrb1PoS4NIDe7DGYtLnU2wWiQe9a1B1c0=
 github.com/hajimehoshi/bitmapfont/v3 v3.2.0 h1:0DISQM/rseKIJhdF29AkhvdzIULqNIIlXAGWit4ez1Q=
 github.com/hajimehoshi/bitmapfont/v3 v3.2.0/go.mod h1:8gLqGatKVu0pwcNCJguW3Igg9WQqVXF0zg/RvrGQWyg=
 github.com/hajimehoshi/ebiten/v2 v2.8.6 h1:Dkd/sYI0TYyZRCE7GVxV59XC+WCi2BbGAbIBjXeVC1U=
@@ -27,8 +20,6 @@ github.com/pierrec/lz4/v4 v4.1.21 h1:yOVMLb6qSIDP67pl/5F7RepeKYu/VmTyEXvuMI5d9mQ
 github.com/pierrec/lz4/v4 v4.1.21/go.mod h1:gZWDp/Ze/IJXGXf23ltt2EXimqmTUXEy0GFuRQyBid4=
 github.com/quasilyte/ebitengine-graphics v0.0.0-20240310203713-05b8d7a97a5b h1:hQH1RQLRtHeVlpWNfIjeg/VfPobufNTEnkPq06uUNvY=
 github.com/quasilyte/ebitengine-graphics v0.0.0-20240310203713-05b8d7a97a5b/go.mod h1:OAYQgMP3cvnlPiMWtdNhGz4rDQdPsI34PiqPSg9c8XY=
-github.com/quasilyte/ebitengine-graphics v0.0.0-20250128120453-1cb1750d1e21 h1:tV6mR4AhfSxd00TM1Ah3HDnogDkp5dfj9/cWAzBWsVs=
-github.com/quasilyte/ebitengine-graphics v0.0.0-20250128120453-1cb1750d1e21/go.mod h1:gmumupChR14Sa2FO/zUFkRFlv6+UwAUZEw6bJDmJEiE=
 github.com/quasilyte/ebitengine-input v0.9.1 h1:sN7jNDLfGn9ZY1lurD4d3oXIOmQbZwYPVpuo4DlsiG0=
 github.com/quasilyte/ebitengine-input v0.9.1/go.mod h1:xYkU+JqzWzjnVMolCIar0VFRly1TtjmEHfQWAoIan+o=
 github.com/quasilyte/ebitengine-resource v0.5.0 h1:sPncYunmgdBZVMRCZn2x2HUH3znL7m6IEczEjseTGbE=
@@ -37,8 +28,8 @@ github.com/quasilyte/gmath v0.0.0-20250203120623-541a76da5618 h1:NHjcwUKvayhzgB0
 github.com/quasilyte/gmath v0.0.0-20250203120623-541a76da5618/go.mod h1:EbI+KMbALSVE2s0YFOQpR4uj66zBh9ter5P4CBMSuvA=
 github.com/quasilyte/gscene v0.0.0-20240310133750-c9071bff3e13 h1:mHxN36pUdAhK1ZxeBCB5bQrqxQ7rXi81qy7VZnmH5aA=
 github.com/quasilyte/gscene v0.0.0-20240310133750-c9071bff3e13/go.mod h1:0GWl/j4N+4rfBx2pb+TFn4pnPvGz5rkWY89KrBGt2Go=
-github.com/quasilyte/gscene v0.0.0-20250128115302-78e79efaf991 h1:zV2k9+Ke54Dr51x1vVfE01oPAVeyk+qY+AFGLT2GGAM=
-github.com/quasilyte/gscene v0.0.0-20250128115302-78e79efaf991/go.mod h1:0GWl/j4N+4rfBx2pb+TFn4pnPvGz5rkWY89KrBGt2Go=
+github.com/quasilyte/gsignal v0.0.0-20240802120557-5896b3add8c1 h1:jGd8JVbr84sPP+LGFr5Iw2w1j4MowR2RQbbxwwkDccY=
+github.com/quasilyte/gsignal v0.0.0-20240802120557-5896b3add8c1/go.mod h1:qAMDDsI56AFnSrBZYG8Tj/Ys+sRsakd8Ho2be2S8Vfc=
 golang.org/x/exp v0.0.0-20250207012021-f9890c6ad9f3 h1:qNgPs5exUA+G0C96DrPwNrvLSj7GT/9D+3WMWUcUg34=
 golang.org/x/exp v0.0.0-20250207012021-f9890c6ad9f3/go.mod h1:tujkw807nyEEAamNbDrEGzRav+ilXA7PCRAd6xsmwiU=
 golang.org/x/image v0.24.0 h1:AN7zRgVsbvmTfNyqIbbOraYL8mSwcKncEj8ofjgzcMQ=

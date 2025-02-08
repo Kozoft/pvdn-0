@@ -9,6 +9,7 @@ require (
 	github.com/quasilyte/ebitengine-resource v0.5.0
 	github.com/quasilyte/gmath v0.0.0-20250203120623-541a76da5618
 	github.com/quasilyte/gscene v0.0.0-20240310133750-c9071bff3e13
+	github.com/quasilyte/gsignal v0.0.0-20240802120557-5896b3add8c1
 )
 
 require (
@@ -16,7 +17,6 @@ require (
 	github.com/ebitengine/hideconsole v1.0.0 // indirect
 	github.com/ebitengine/oto/v3 v3.3.2 // indirect
 	github.com/ebitengine/purego v0.8.2 // indirect
-	github.com/go-text/typesetting v0.2.1 // indirect
 	github.com/jezek/xgb v1.1.1 // indirect
 	github.com/jfreymuth/oggvorbis v1.0.5 // indirect
 	github.com/jfreymuth/vorbis v1.0.2 // indirect

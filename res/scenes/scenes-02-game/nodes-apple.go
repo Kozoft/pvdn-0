@@ -1,4 +1,4 @@
-package scenes
+package scenes02Game
 
 import (
   graphics "github.com/quasilyte/ebitengine-graphics"
@@ -21,10 +21,8 @@ func newAppleNode(position gmath.Vec) *appleNode {
 }
 
 func (apple *appleNode) Init(scene *scene) {
-  context := scene.Controller().context
-
+  context := scene.Controller().Context
   apple.input = context.Input
-
   apple.sprite = context.NewSprite(assets.ImageApple)
   apple.sprite.Pos.Base = &apple.position
   scene.AddGraphics(apple.sprite)
@@ -48,6 +46,9 @@ func (apple *appleNode) Update(delta float64) {
   }
   if apple.input.ActionIsPressed(controls.ActionMoveUp) {
     vector.Y -= speed
+  }
+  if !vector.IsZero() {
+    apple.sprite.SetHorizontalFlip(vector.X < 0)
   }
   apple.position = apple.position.Add(vector)
 }
