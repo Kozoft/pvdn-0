@@ -21,7 +21,7 @@ func newAppleNode(position gmath.Vec) *appleNode {
 }
 
 func (apple *appleNode) Init(scene *scene) {
-  context := scene.Controller().Context
+  context := scene.Controller().context
   apple.input = context.Input
   apple.sprite = context.NewSprite(assets.ImageApple)
   apple.sprite.Pos.Base = &apple.position

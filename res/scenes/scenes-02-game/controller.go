@@ -13,7 +13,7 @@ import (
 
 type scene = gscene.Scene[*Controller02]
 type Controller02 struct {
-  Context    *game.Context
+  context    *game.Context
   scene      *gscene.RootScene[*Controller02]
   state      *SceneState
   scoreLabel *graphics.Label
@@ -21,7 +21,7 @@ type Controller02 struct {
 }
 
 func NewController02(context *game.Context) *Controller02 {
-  return &Controller02{Context: context}
+  return &Controller02{context: context}
 }
 
 func (controller *Controller02) Init(rootScene *gscene.RootScene[*Controller02]) {
@@ -29,7 +29,7 @@ func (controller *Controller02) Init(rootScene *gscene.RootScene[*Controller02])
   apple := newAppleNode(gmath.Vec{X: 64, Y: 64})
   rootScene.AddObject(apple)
   controller.state = &SceneState{Apple: apple}
-  controller.scoreLabel = controller.Context.NewLabel(assets.FontNormal)
+  controller.scoreLabel = controller.context.NewLabel(assets.FontNormal)
   controller.scoreLabel.Pos.Offset = gmath.Vec{X: 4, Y: 4}
   rootScene.AddGraphics(controller.scoreLabel)
   controller.createPickup()
@@ -38,8 +38,8 @@ func (controller *Controller02) Init(rootScene *gscene.RootScene[*Controller02])
 
 func (controller *Controller02) createPickup() {
   pickupNode := newPickupNode(gmath.Vec{
-    X: controller.Context.Rand.FloatRange(0, float64(controller.Context.WindowWidth)),
-    Y: controller.Context.Rand.FloatRange(0, float64(controller.Context.WindowHeight)),
+    X: controller.context.Rand.FloatRange(0, float64(controller.context.WindowWidth)),
+    Y: controller.context.Rand.FloatRange(0, float64(controller.context.WindowHeight)),
   })
   pickupNode.EventDestroyed.Connect(nil, func(score int) {
     controller.addScore(score)
@@ -54,7 +54,7 @@ func (controller *Controller02) addScore(score int) {
 }
 
 func (controller *Controller02) Update(delta float64) {
-  if controller.Context.Input.ActionIsJustPressed(controls.ActionRestart) {
-    game.ChangeScene(controller.Context, NewController02(controller.Context))
+  if controller.context.Input.ActionIsJustPressed(controls.ActionRestart) {
+    game.ChangeScene(controller.context, NewController02(controller.context))
   }
 }

@@ -2,6 +2,7 @@ package scenes01Splash
 
 import (
   graphics "github.com/quasilyte/ebitengine-graphics"
+  "github.com/quasilyte/gmath"
   "github.com/quasilyte/gscene"
   "pvdn-0/res/assets"
   "pvdn-0/res/controls"
@@ -9,15 +10,20 @@ import (
   scenes02Game "pvdn-0/res/scenes/scenes-02-game"
 )
 
+type scene = gscene.Scene[*Controller01]
 type Controller01 struct {
   context *game.Context
+  scene   *gscene.RootScene[*Controller01]
 }
 
 func NewController01(context *game.Context) *Controller01 {
   return &Controller01{context: context}
 }
 
-func (controller *Controller01) Init(scene *gscene.SimpleRootScene) {
+func (controller *Controller01) Init(scene *gscene.RootScene[*Controller01]) {
+  controller.scene = scene
+  apple := newAppleNode(gmath.Vec{X: 128, Y: 128})
+  scene.AddObject(apple)
   label := controller.context.NewLabel(assets.FontBig)
   label.SetAlignHorizontal(graphics.AlignHorizontalCenter)
   label.SetAlignVertical(graphics.AlignVerticalCenter)

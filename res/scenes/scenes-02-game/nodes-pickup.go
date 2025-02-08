@@ -22,7 +22,7 @@ func newPickupNode(position gmath.Vec) *pickupNode {
 
 func (pickupNode *pickupNode) Init(scene *scene) {
   pickupNode.scene = scene
-  context := scene.Controller().Context
+  context := scene.Controller().context
   pickupNode.score = context.Rand.IntRange(5, 10)
   pickupNode.rect = context.NewRect(16, 16)
   pickupNode.rect.Pos.Base = &pickupNode.position
