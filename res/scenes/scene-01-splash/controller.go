@@ -1,4 +1,4 @@
-package scenes01Splash
+package scene01Splash
 
 import (
   graphics "github.com/quasilyte/ebitengine-graphics"
@@ -7,7 +7,7 @@ import (
   "pvdn-0/res/assets"
   "pvdn-0/res/controls"
   "pvdn-0/res/game"
-  scenes02Game "pvdn-0/res/scenes/scenes-02-game"
+  scene02Game "pvdn-0/res/scenes/scene-02-game"
 )
 
 type scene = gscene.Scene[*Controller01]
@@ -34,6 +34,6 @@ func (controller *Controller01) Init(scene *gscene.RootScene[*Controller01]) {
 
 func (controller *Controller01) Update(delta float64) {
   if controller.context.Input.ActionIsJustPressed(controls.ActionConfirm) {
-    game.ChangeScene(controller.context, scenes02Game.NewController02(controller.context))
+    game.ChangeScene(controller.context, scene02Game.NewController02(controller.context))
   }
 }

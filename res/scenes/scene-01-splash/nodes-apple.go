@@ -1,4 +1,4 @@
-package scenes01Splash
+package scene01Splash
 
 import (
   graphics "github.com/quasilyte/ebitengine-graphics"

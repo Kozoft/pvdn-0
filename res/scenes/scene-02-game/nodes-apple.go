@@ -1,4 +1,4 @@
-package scenes02Game
+package scene02Game
 
 import (
   graphics "github.com/quasilyte/ebitengine-graphics"
