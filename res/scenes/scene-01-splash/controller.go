@@ -28,7 +28,7 @@ func (controller *Controller01) Init(scene *gscene.RootScene[*Controller01]) {
   label.SetAlignHorizontal(graphics.AlignHorizontalCenter)
   label.SetAlignVertical(graphics.AlignVerticalCenter)
   label.SetSize(controller.context.WindowWidth, controller.context.WindowHeight)
-  label.SetText("Bitte Knopf drucken")
+  label.SetText("[Enter] Bitte Knopf drucken")
   scene.AddGraphics(label)
 }
 
