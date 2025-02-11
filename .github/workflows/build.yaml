@@ -35,7 +35,6 @@ jobs:
         run: |
           mkdir out
           env GOOS=windows GOARCH=amd64 go build -o out/pvdn-${{ steps.project_version.outputs.project_version }}-win.exe lgk/main.go
-          env GOOS=darwin GOARCH=arm64 go build -o out/pvdn-${{ steps.project_version.outputs.project_version }}-macos lgk/main.go
 
       - name: Upload build
         uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 #4.6.0
@@ -43,5 +42,4 @@ jobs:
           name: pvdn-${{ steps.project_version.outputs.project_version }}
           path: |
             out/pvdn-${{ steps.project_version.outputs.project_version }}-win.exe
-            out/pvdn-${{ steps.project_version.outputs.project_version }}-macos
           retention-days: 30
