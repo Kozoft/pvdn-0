@@ -1,0 +1,47 @@
+---
+name: Build and Push
+
+on:
+  push:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Project Version
+        id: project_version
+        run: echo "project_version=$(git describe --always --tags --match '*.*' | sed 's/^v//')" >> "${GITHUB_OUTPUT}"
+
+      - name: Setup Go version
+        uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 #5.3.0
+        with:
+          go-version: '>=1.24.0'
+
+      - name: Install dependencies
+        run: |
+          go get .
+
+      - name: Build
+        run: |
+          mkdir out
+          env GOOS=windows GOARCH=amd64 go build -o out/pvdn-${{ steps.project_version.outputs.project_version }}-win.exe lgk/main.go
+          env GOOS=darwin GOARCH=arm64 go build -o out/pvdn-${{ steps.project_version.outputs.project_version }}-macos lgk/main.go
+
+      - name: Upload build
+        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 #4.6.0
+        with:
+          name: pvdn-${{ steps.project_version.outputs.project_version }}
+          path: |
+            out/pvdn-${{ steps.project_version.outputs.project_version }}-win.exe
+            out/pvdn-${{ steps.project_version.outputs.project_version }}-macos
+          retention-days: 30
