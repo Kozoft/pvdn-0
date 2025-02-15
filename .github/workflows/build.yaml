@@ -59,7 +59,8 @@ jobs:
             libgl-dev \
             libxcursor-dev \
             libxinerama-dev \
-            libxi-dev
+            libxi-dev \
+            libxxf86vm-dev
 
       - name: Checkout Repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #4.2.2
