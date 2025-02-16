@@ -18,34 +18,29 @@ on:
 
 jobs:
   build:
-    name: ${{ matrix.config.name }}
-    runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
-        shell: ${{ matrix.config.shell }}
+        shell: ${{ matrix.shell }}
     strategy:
       fail-fast: false
       matrix:
-        config:
+        include:
           - name: linux
             os: ubuntu-24.04
             shell: bash
-            postfix: linux
-            goos: linux
             goarch: amd64
 
-          - name: macos
+          - name: darwin
             os: macos-15
             shell: bash
-            postfix: darwin
-            goos: darwin
             goarch: arm64
 
           - name: windows
-            os: ubuntu-24.04
+            os: windows-2022
             shell: bash
-            postfix: windows.exe
-            goos: windows
+            postfix: '.exe'
             goarch: amd64
 
     steps:
@@ -70,12 +65,10 @@ jobs:
         run: |
           brew install enet
 
-      - name: Install dependencies (Windows)
-        if: matrix.config.name == 'windows'
+      - name: Install packages (Windows)
+        if: runner.os == 'Windows'
         run: |
-          sudo apt-get update
-          sudo apt-get install \
-            libenet-dev
+          choco install ${{ matrix.packages }}
 
       - name: Checkout Repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #4.2.2
@@ -99,16 +92,16 @@ jobs:
         run: |
           mkdir out
           env \
-            GOOS=${{ matrix.config.goos }} \
-            GOARCH=${{ matrix.config.goarch }} \
+            GOOS=${{ matrix.name }} \
+            GOARCH=${{ matrix.goarch }} \
             go build -o \
-            out/pvdn-${{ steps.project_version.outputs.project_version }}-${{ matrix.config.postfix }} \
+            out/pvdn-${{ steps.project_version.outputs.project_version }}-${{ matrix.name }}${{ matrix.postfix }} \
             lgk/main.go
 
       - name: Upload build
         uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 #4.6.0
         with:
-          name: pvdn-${{ steps.project_version.outputs.project_version }}-${{ matrix.config.name }}
+          name: pvdn-${{ steps.project_version.outputs.project_version }}-${{ matrix.name }}
           path: |
-            out/pvdn-${{ steps.project_version.outputs.project_version }}-${{ matrix.config.postfix }}
+            out/pvdn-${{ steps.project_version.outputs.project_version }}-${{ matrix.name }}${{ matrix.postfix }}
           retention-days: 30
