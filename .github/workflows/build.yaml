@@ -62,7 +62,8 @@ jobs:
             libxcursor-dev \
             libxinerama-dev \
             libxi-dev \
-            libxxf86vm-dev
+            libxxf86vm-dev \
+            libenet-dev
 
       - name: Install dependencies (macOS)
         if: runner.os == 'macOS'
