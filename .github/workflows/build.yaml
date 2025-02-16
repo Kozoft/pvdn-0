@@ -65,11 +65,6 @@ jobs:
         run: |
           brew install enet
 
-      - name: Install packages (Windows)
-        if: runner.os == 'Windows'
-        run: |
-          choco install ${{ matrix.packages }}
-
       - name: Checkout Repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #4.2.2
         with:
