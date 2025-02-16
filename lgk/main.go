@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"time"
 
 	"github.com/codecat/go-enet"
@@ -36,6 +37,7 @@ func main() {
 	})
 
 	enet.Initialize()
+	err := errors.New("void")
 
 	theGame.client, err = enet.NewHost(nil, 1, 1, 0, 0)
 	if err != nil {
