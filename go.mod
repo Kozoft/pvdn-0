@@ -1,9 +1,9 @@
 module pvdn-0
 
-go 1.24.0
+go 1.24.1
 
 require (
-	github.com/codecat/go-enet v0.0.0-20250111122620-4dd2fcc21203
+	github.com/codecat/go-enet v0.0.0-20250227075345-1c03ac96b7b4
 	github.com/codecat/go-libs v0.0.0-20210906174629-ffa6674c8e05
 	github.com/hajimehoshi/ebiten/v2 v2.8.6
 	github.com/quasilyte/ebitengine-graphics v0.0.0-20240310203713-05b8d7a97a5b
@@ -23,11 +23,11 @@ require (
 	github.com/jezek/xgb v1.1.1 // indirect
 	github.com/jfreymuth/oggvorbis v1.0.5 // indirect
 	github.com/jfreymuth/vorbis v1.0.2 // indirect
-	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
-	golang.org/x/exp v0.0.0-20250210185358-939b2ce775ac // indirect
-	golang.org/x/image v0.24.0 // indirect
-	golang.org/x/sync v0.11.0 // indirect
-	golang.org/x/sys v0.30.0 // indirect
-	golang.org/x/text v0.22.0 // indirect
+	golang.org/x/exp v0.0.0-20250305212735-054e65f0b394 // indirect
+	golang.org/x/image v0.25.0 // indirect
+	golang.org/x/sync v0.12.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 )
