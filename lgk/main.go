@@ -35,6 +35,7 @@ func main() {
 	theGame.inputSystem.Init(input.SystemConfig{
 		DevicesEnabled: input.AnyDevice,
 	})
+	context.Input = theGame.inputSystem.NewHandler(0, controls.DefaultKeymap)
 
 	enet.Initialize()
 	err := errors.New("void")
@@ -48,7 +49,6 @@ func main() {
 		log.Error("Couldn't connect: %s", err.Error())
 	}
 
-	context.Input = theGame.inputSystem.NewHandler(0, controls.DefaultKeymap)
 	ebiten.SetWindowSize(theGame.context.WindowWidth, theGame.context.WindowHeight)
 	ebiten.SetWindowTitle("Ebitengine Apple Sample")
 	assets.RegisterResources(context.Loader)
@@ -58,14 +58,12 @@ func main() {
 	}
 }
 
-// Update game logic
 func (localGame *aGame) Update() error {
 	localGame.inputSystem.Update()
 	localGame.context.CurrentScene().UpdateWithDelta(1.0 / 60.0)
 	return nil
 }
 
-// Draw drawing
 func (localGame *aGame) Draw(screen *ebiten.Image) {
 	localGame.context.CurrentScene().Draw(screen)
 }
